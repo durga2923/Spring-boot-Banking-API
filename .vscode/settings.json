@@ -1,5 +1,0 @@
-{
-    "java.configuration.updateBuildConfiguration": "interactive",
-    "java.compile.nullAnalysis.mode": "automatic",
-    "oracle-java.java.jdkhome": "/usr/local/sdkman/candidates/java/21.0.9-ms"
-}
