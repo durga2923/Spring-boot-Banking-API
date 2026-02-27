@@ -8,7 +8,7 @@ import com.microfinanceBank.Employee.enums.Role;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.Email;
+import jakarta.validation.constraints.Email;
 import java.io.Serializable;
 import java.util.Date;
 

@@ -1,7 +1,7 @@
 package com.microfinanceBank.Loan.repo;
 
 
-import javax.transaction.Transaction;
+import jakarta.transaction.Transaction;
 
 public interface BankLoanRepository extends  LoanRepository{
 

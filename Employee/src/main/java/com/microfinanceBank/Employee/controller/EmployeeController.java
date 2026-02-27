@@ -15,8 +15,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 
-import javax.annotation.security.RolesAllowed;
-import javax.validation.Valid;
+import jakarta.annotation.security.RolesAllowed;
+import jakarta.validation.Valid;
 import java.util.List;
 
 @RestController

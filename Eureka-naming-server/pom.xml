@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.6.6</version>
+		<version>3.2.12</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.microfinanceBank</groupId>
@@ -14,8 +14,8 @@
 	<name>eureka-naming-server</name>
 	<description>cloud-server</description>
 	<properties>
-		<java.version>11</java.version>
-		<spring-cloud.version>2021.0.1</spring-cloud.version>
+		<java.version>21</java.version>
+		<spring-cloud.version>2022.0.4</spring-cloud.version>
 	</properties>
 	<dependencies>
 
@@ -42,12 +42,12 @@
 			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-sleuth-zipkin</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-sleuth</artifactId>
+		<groupId>io.micrometer</groupId>
+		<artifactId>micrometer-tracing-bridge-brave</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>io.zipkin.reporter2</groupId>
+		<artifactId>zipkin-reporter</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.amqp</groupId>

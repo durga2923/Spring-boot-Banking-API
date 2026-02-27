@@ -164,7 +164,7 @@ class BankLoanRIskImplTest {
         loan.setPrincipalLoanAmount(BigDecimal.valueOf(500000));
         loan.setRemainingPrincipal(BigDecimal.valueOf(200000));
         loan.setLoanIssuedDate(LocalDate.parse("2020-05-05"));
-        loan.setMonthlyDueDate(LocalDate.parse("2021-05-05"));
+        loan.setDueDate(LocalDate.parse("2021-05-05"));
         loan.setBorrowerDetails(borrowerDetails);
         loan.setFullyPaid(true);
         loan.setFullyPaidDate(LocalDate.now());

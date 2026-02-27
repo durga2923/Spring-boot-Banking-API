@@ -14,8 +14,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.ReadOnlyProperty;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Time;

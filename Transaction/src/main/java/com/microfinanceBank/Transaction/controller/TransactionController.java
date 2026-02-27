@@ -20,6 +20,7 @@ import org.apache.tomcat.util.ExceptionUtils;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.amqp.core.DirectExchange;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.retry.annotation.Retryable;
@@ -31,7 +32,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 import reactor.util.retry.Retry;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 import java.net.ConnectException;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -66,7 +67,7 @@ public class TransactionController {
                 .bodyValue(transaction)
                 .headers(httpHeaders -> httpHeaders.setBearerAuth(getTokenValue()))
                 .retrieve()
-                .onStatus(HttpStatus::isError,clientResponse ->
+                .onStatus(HttpStatusCode::isError,clientResponse ->
                         clientResponse
                         .bodyToMono(ApiExceptionMessage.class)
                         .flatMap(error-> {
@@ -92,7 +93,7 @@ public class TransactionController {
                 .bodyValue(transfer)
                 .headers(httpHeaders -> httpHeaders.setBearerAuth(getTokenValue()))
                 .retrieve()
-                .onStatus(HttpStatus::isError,clientResponse ->
+                .onStatus(HttpStatusCode::isError,clientResponse ->
                         clientResponse
                                 .bodyToMono(ApiExceptionMessage.class)
                                 .flatMap(error-> {

@@ -20,8 +20,8 @@ import org.springframework.retry.annotation.Retryable;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.security.RolesAllowed;
-import javax.validation.Valid;
+import jakarta.annotation.security.RolesAllowed;
+import jakarta.validation.Valid;
 import java.math.BigDecimal;
 import java.util.List;
 

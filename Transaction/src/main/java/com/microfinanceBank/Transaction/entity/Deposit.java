@@ -6,8 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
-import javax.persistence.*;
-import javax.validation.constraints.Positive;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Positive;
 import java.math.BigDecimal;
 import java.sql.Date;
 import java.sql.Time;

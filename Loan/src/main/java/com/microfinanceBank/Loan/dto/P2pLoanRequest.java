@@ -6,7 +6,7 @@ import com.microfinanceBank.Loan.entity.P2pLoanOffer;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.Positive;
+import jakarta.validation.constraints.Positive;
 import java.io.Serializable;
 import java.math.BigDecimal;
 

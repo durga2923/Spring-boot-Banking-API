@@ -6,9 +6,9 @@ import com.microfinanceBank.Loan.entity.LoanOffer;
 import com.microfinanceBank.Loan.enums.AccountType;
 import lombok.*;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;

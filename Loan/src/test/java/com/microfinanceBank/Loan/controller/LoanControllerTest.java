@@ -19,15 +19,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.autoconfigure.web.client.RestClientTest;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.core.env.Environment;
 import org.springframework.http.*;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.client.RestTemplate;
 
-import javax.annotation.Resource;
-import javax.inject.Inject;
+import jakarta.annotation.Resource;
+import jakarta.inject.Inject;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Arrays;

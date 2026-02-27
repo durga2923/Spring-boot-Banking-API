@@ -130,7 +130,7 @@ public class RedisCacheAndXssFilter implements GlobalFilter, Ordered {
 
                                 boolean isGetMethod = isGetMethod(exchange);
                                 if (Objects.requireNonNull(getStatusCode()).is2xxSuccessful() &&isGetMethod &&allowedUrls.containsKey(path)) {
-                                    final var cachedResponse = new CachedResponse(getStatusCode(), getHeaders().toSingleValueMap(), outputStream.toByteArray());
+                                    final var cachedResponse = new CachedResponse(HttpStatus.valueOf(getStatusCode().value()), getHeaders().toSingleValueMap(), outputStream.toByteArray());
                                     log.debug("Request {} Cached response {}", path, cachedResponse.getBody().toString());
                                     var cacheKey=getCachedRequest(exchange.getRequest());
                                     var a=cache.put(cacheKey, cachedResponse).subscribe();
@@ -147,7 +147,7 @@ public class RedisCacheAndXssFilter implements GlobalFilter, Ordered {
     }
 
     private static boolean isGetMethod(ServerWebExchange exchange) {
-        boolean isGetMethod= exchange.getRequest().getMethodValue().equals("GET");
+        boolean isGetMethod= exchange.getRequest().getMethod().name().equals("GET");
         return isGetMethod;
     }
 

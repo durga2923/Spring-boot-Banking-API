@@ -8,7 +8,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.keycloak.representations.idm.AdminEventRepresentation;
 import org.keycloak.representations.idm.EventRepresentation;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.ArrayList;

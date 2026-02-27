@@ -25,8 +25,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import reactor.core.publisher.Flux;
 
-import javax.annotation.PostConstruct;
-import javax.ws.rs.core.Response;
+import jakarta.annotation.PostConstruct;
+import jakarta.ws.rs.core.Response;
 import java.util.*;
 import java.util.stream.Collectors;
 

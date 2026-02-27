@@ -8,7 +8,7 @@ import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.stereotype.Indexed;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Time;

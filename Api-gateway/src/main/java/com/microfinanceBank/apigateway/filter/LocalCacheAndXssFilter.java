@@ -25,7 +25,7 @@ import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.*;
@@ -71,7 +71,7 @@ public class LocalCacheAndXssFilter implements GlobalFilter, Ordered {
         var path=exchange.getRequest().getPath().value();
 
         Set<String> userAuthorities =userAuthorities(exchange);
-        boolean isGetMethod=exchange.getRequest().getMethodValue().equals("GET");
+        boolean isGetMethod=exchange.getRequest().getMethod().name().equals("GET");
 
         final var cache = cacheManager.getCache("MyCache");
         final var allowedRole=allowedUrls.get(path);
@@ -141,10 +141,10 @@ public class LocalCacheAndXssFilter implements GlobalFilter, Ordered {
                             }
 
 
-                                boolean isGetMethod=exchange.getRequest().getMethodValue().equals("GET");
+                                boolean isGetMethod=exchange.getRequest().getMethod().name().equals("GET");
 
                                 if (Objects.requireNonNull(getStatusCode()).is2xxSuccessful() &&isGetMethod &&allowedUrls.containsKey(path)) {
-                                final var cachedResponse = new CachedResponse(getStatusCode(), getHeaders().toSingleValueMap(), outputStream.toByteArray());
+                                final var cachedResponse = new CachedResponse(HttpStatus.valueOf(getStatusCode().value()), getHeaders().toSingleValueMap(), outputStream.toByteArray());
                                 log.debug("Request {} Cached response {}", path, new String(cachedResponse.getBody(), UTF_8));
                                 var cacheKey=getCachedRequest(exchange.getRequest());
                                 cache.put(cacheKey, cachedResponse);

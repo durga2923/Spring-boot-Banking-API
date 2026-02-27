@@ -17,8 +17,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.retry.annotation.Retryable;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.security.RolesAllowed;
-import javax.validation.Valid;
+import jakarta.annotation.security.RolesAllowed;
+import jakarta.validation.Valid;
 import java.util.List;
 
 
@@ -41,10 +41,6 @@ public class CustomerController {
 //	@XssFilter
 	public ResponseEntity<CustomerDto> createCustomer(@Valid @RequestBody Register register){
 		CustomerDto savedUser = customerService.createCustomer(register);
-<<<<<<< HEAD
-=======
-		System.out.println("webbbbbbbbbbb111111111111");
->>>>>>> 3042050908729fcb60132c5fbfdbb6f52055d03b
 		return new ResponseEntity<>(savedUser,HttpStatus.CREATED);
 	}
 

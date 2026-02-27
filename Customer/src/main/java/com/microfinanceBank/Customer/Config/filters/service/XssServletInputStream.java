@@ -1,8 +1,8 @@
 package com.microfinanceBank.Customer.Config.filters.service;
 
 import java.io.ByteArrayInputStream;
-import javax.servlet.ReadListener;
-import javax.servlet.ServletInputStream;
+import jakarta.servlet.ReadListener;
+import jakarta.servlet.ServletInputStream;
 
 /**
  * XssServletInputStream read data using ByteArrayInputStream.
