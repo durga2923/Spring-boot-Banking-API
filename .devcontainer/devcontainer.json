@@ -3,23 +3,20 @@
   "dockerComposeFile": "docker-compose.yml",
   "service": "app",
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "shutdownAction": "stopCompose",
 
   "features": {
-    "ghcr.io/devcontainers/features/java:1": {
-      "version": "17",
-      "installMaven": "true",
-      "installGradle": "false"
-    },
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
   },
 
   "forwardPorts": [
-    8080,
     8081,
     8082,
     8083,
     8084,
     8085,
+    8765,
+    8888,
     8761,
     3306,
     27017,
@@ -33,12 +30,13 @@
   ],
 
   "portsAttributes": {
-    "8080": { "label": "API Gateway" },
     "8081": { "label": "Customer Service" },
-    "8082": { "label": "Transaction Service" },
+    "8082": { "label": "Employee Service" },
     "8083": { "label": "Loan Service" },
-    "8084": { "label": "Issue Service" },
-    "8085": { "label": "Employee Service" },
+    "8084": { "label": "Transaction Service" },
+    "8085": { "label": "Issues Service" },
+    "8765": { "label": "API Gateway" },
+    "8888": { "label": "Spring Cloud Config Server" },
     "8761": { "label": "Eureka Service Registry" },
     "3306": { "label": "MySQL" },
     "27017": { "label": "MongoDB" },
@@ -51,7 +49,7 @@
     "8180": { "label": "Keycloak" }
   },
 
-  "postCreateCommand": "mvn dependency:resolve -f api-gateway/pom.xml || true && mvn dependency:resolve -f customer-service/pom.xml || true",
+  "postCreateCommand": "bash -lc 'for d in Api-gateway Common-dto Customer Employee Eureka-naming-server Issues Loan Spring-cloud-config-server Transaction; do if [ -f \"$d/pom.xml\" ] && [ -f \"$d/mvnw\" ]; then chmod +x \"$d/mvnw\" && \"$d/mvnw\" -q -f \"$d/pom.xml\" -DskipTests dependency:go-offline || true; fi; done'",
 
   "customizations": {
     "vscode": {
@@ -59,7 +57,7 @@
         "java.jdt.ls.java.home": "/usr/local/sdkman/candidates/java/current",
         "java.configuration.runtimes": [
           {
-            "name": "JavaSE-17",
+            "name": "JavaSE-21",
             "path": "/usr/local/sdkman/candidates/java/current",
             "default": true
           }
@@ -69,11 +67,10 @@
       },
       "extensions": [
         "vscjava.vscode-java-pack",
-        "vmware.vscode-spring-boot",
-        "vscjava.vscode-spring-initializr",
-        "vscjava.vscode-spring-boot-dashboard",
         "vscjava.vscode-maven",
         "redhat.java",
+        "vmware.vscode-boot-dev-pack",
+        "redhat.vscode-yaml",
         "vscjava.vscode-java-debug",
         "vscjava.vscode-java-test",
         "humao.rest-client",
@@ -81,6 +78,7 @@
         "cweijan.vscode-mysql-client2",
         "cweijan.vscode-redis-client",
         "ms-azuretools.vscode-docker",
+        "ms-kubernetes-tools.vscode-kubernetes-tools",
         "rangav.vscode-thunder-client"
       ]
     }
